@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct todo_newApp: App {
+    
+   @StateObject var listViewModel: ListViewModel = ListViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                
+                ListView()
+
+            }
+            
+            //adaptare pt ipad
+            .navigationViewStyle(StackNavigationViewStyle())
+            .environmentObject(listViewModel)
         }
     }
 }
